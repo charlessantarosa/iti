@@ -20,6 +20,7 @@ public class ApplicationServiceImpl implements IApplicationService {
                     .countDigitByPasswordConstraint()
                     .lowerCaseByPasswordConstraint()
                     .upperCaseByPasswordConstraint()
+                    .allowedCharactersByPasswordConstraint()
                     .passwordRestrictionByPasswordText();
 
             return true;

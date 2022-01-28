@@ -72,4 +72,13 @@ public class ApplicationPasswordTest {
 		Assertions.assertFalse(service.isValidPass(passwdDTO));
 	}
 
+	/** Retorna FALSE para a senha com AUSENCIA de caractere especial permitido. */
+	@Test
+	public void PasswordMissingAllowedCharacters() throws Exception {
+		String passwordText = "abtp9zfoK";
+		PasswdDTO passwdDTO = new PasswdDTO();
+		passwdDTO.setPasswdText(passwordText);
+		Assertions.assertFalse(service.isValidPass(passwdDTO));
+	}
+
 }

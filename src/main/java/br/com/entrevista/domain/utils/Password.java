@@ -55,6 +55,21 @@ public class Password {
         return this;
     }
 
+    public Password allowedCharactersByPasswordConstraint() throws AllowedCaractersByStringException {
+        String regex = "[!@#$%^&*()+-]*$";
+        int isMatch = 0;
+        final Pattern pattern = Pattern.compile(regex);
+
+        for (int i=0; i < this.passwordText.length(); i++) {
+            char ch = this.passwordText.charAt(i);
+            Matcher matcher = pattern.matcher(Character.toString(ch));
+            boolean match = matcher.matches();
+            if(match) isMatch++;
+        }
+        if(isMatch > 0) return this;
+        throw new AllowedCaractersByStringException();
+    }
+
     public Password passwordRestrictionByPasswordText() throws Exception {
         final String regex = "[a-zA-Z0-9!@#$%^&*()\\-+]";
         final int minCaracthers = 9;
