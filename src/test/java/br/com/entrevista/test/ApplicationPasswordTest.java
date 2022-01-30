@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
@@ -63,7 +62,7 @@ public class ApplicationPasswordTest {
 		Assertions.assertFalse(service.isValidPass(passwdDTO));
 	}
 
-	/** Retorna FALSE para a senha com caracteres inválido. */
+	/** Retorna FALSE para a senha com caracteres inválidos. */
 	@Test
 	public void PasswordWithInvalidCharacters() throws Exception {
 		String passwordText = "AbTp9~foa";

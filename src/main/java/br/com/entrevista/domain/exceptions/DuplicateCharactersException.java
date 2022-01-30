@@ -7,4 +7,9 @@ public class DuplicateCharactersException extends Exception {
         super();
     }
 
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
 }
