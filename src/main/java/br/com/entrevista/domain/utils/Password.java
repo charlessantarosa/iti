@@ -56,25 +56,7 @@ public class Password {
     }
 
     public Password allowedCharactersByPasswordConstraint() throws AllowedCaractersByStringException {
-        String regex = "[!@#$%^&*()+-]*$";
-        int isMatch = 0;
-        final Pattern pattern = Pattern.compile(regex);
-
-        for (int i=0; i < this.passwordText.length(); i++) {
-            char ch = this.passwordText.charAt(i);
-            Matcher matcher = pattern.matcher(Character.toString(ch));
-            boolean match = matcher.matches();
-            if(match) isMatch++;
-        }
-        if(isMatch > 0) return this;
-        throw new AllowedCaractersByStringException();
-    }
-
-    public Password passwordRestrictionByPasswordText() throws Exception {
         final String regex = "[a-zA-Z0-9!@#$%^&*()\\-+]";
-        final int minCaracthers = 9;
-        if(this.passwordText.length() < minCaracthers) throw new NumberOfCharactersException();
-        if(hasRepeatedCharacters()) throw new DuplicateCharactersException();
         final Pattern pattern = Pattern.compile(regex);
         for (int i=0; i < this.passwordText.length(); i++) {
             char ch = this.passwordText.charAt(i);
@@ -85,6 +67,7 @@ public class Password {
         return this;
     }
 
+/**
     public boolean hasRepeatedCharacters() {
         int p = -1, i, j;
         for (i = 0; i < this.passwordText.length(); i++) {
@@ -99,5 +82,5 @@ public class Password {
         }
         return (p < 0) ? false : true;
     }
-
+*/
 }

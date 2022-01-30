@@ -1,7 +1,7 @@
 package br.com.entrevista.domain.exceptions;
 
 public class AllowedCaractersByStringException extends Exception {
-    private String message = "Digite pelo menos 1 caracter especial permitido: !@#$%^&*()-+";
+    private String message = "Digite apenas caracteres especiais permitidos: !@#$%^&*()-+";
 
     public AllowedCaractersByStringException() {
         super();
